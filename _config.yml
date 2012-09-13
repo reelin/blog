@@ -1,0 +1,4 @@
+safe: true
+sourse: https://github.com/reelin/blog.git
+lsi: false
+pygments: true
