@@ -3,3 +3,4 @@ sourse: https://github.com/reelin/blog.git
 lsi: false
 pygments: true
 permalink: /blog/:year/:month/:day/:title.html
+baseurl: http://reelin.github.com/blog/
