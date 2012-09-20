@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Blog by reelin</title>
+
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/styles.css">
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/pygment_trac.css">
+    <script src="http://reelin.github.com/blog/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">喵呜</h1>
+        <p class="header">Reelin's blog</p>
+
+        <ul>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/tarball/master">Download TAR</a></li>
+            <li><a class="buttons github" href="https://github.com/reelin/blog">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/reelin">reelin</a></p>
+
+
+    </header>
+    <section>
+        <div class="post">
+    <h2>Smashing HTML5</h2>
+    <div><p>Smashing HTML5, 一种新布局。如下图，</p>
+<img src='http://img.readitlater.com/i/media.smashingmagazine.com/wp-content/uploads/images/smashing-html5/files/design-thumb/RS/w680.png' data-pinit='registered' alt='' /><img src='http://img.readitlater.com/i/media.smashingmagazine.com/wp-content/uploads/images/smashing-html5/files/design-x-ray/RS/w680.png' data-pinit='registered' alt='' />
+<p>按照教程敲了一下。总结了一下HTML5和CSS3的新特性：</p>
+
+<p><code>&lt;header&gt;</code> <code>&lt;footer&gt;</code> ：以前的<code>&lt;div id=”header”&gt;&lt;div id=”footer”&gt;</code>。添加了有语义的header和footer，也方便了html的编写。</p>
+
+<p><code>&lt;nav&gt;</code> 有语义的导航标签</p>
+
+<p><code>&lt;aside&gt;</code> ：与整体的内容相关性较小，一般都被隔离出内容区域的区域用aside标签。在Smashing面了，#featured就是使用了aside标签。</p>
+
+<p><code>&lt;section&gt;</code> ：也是div，但是更有语义。所包括的区域内容更具有自己的意义。在Smashing里面，#body #extra都是使用了section。</p>
+
+<p><code>&lt;article&gt;</code>：比section更有语义，并且更具体。在Smashing HTML5中，是将其表示post-list里面的content。包含了每条内容的header， footer，以及内容块div。</p>
+
+<pre><code>&lt;article&gt;
+     &lt;header&gt;
+          &lt;h2&gt;&lt;a href=&quot;#&quot; rel=&quot;bookmark&quot; title=&quot;This is title&quot;&gt;This be the title&lt;/a&gt;&lt;/h2&gt;
+     &lt;/header&gt;
+     &lt;footer&gt;
+           &lt;p&gt;By reelin&lt;p&gt;
+     &lt;/footer&gt;
+     &lt;div&gt;
+           &lt;p&gt;Welcome to my blog!&lt;p&gt;
+     &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+<p><code>&lt;figure&gt;</code>： 顾名思义用于图像上。</p>
+
+<pre><code>&lt;figure&gt;
+    &lt;img src=&quot;images/temp/sm-logo.gif&quot; alt=&quot;Smashing Magazine&quot; /&gt;
+&lt;/figure&gt;</code></pre>
+
+<p><code>&lt;hgroup&gt;</code>： 标题块</p>
+
+<pre><code>&lt;hgroup&gt;
+    &lt;h2&gt;Featured Article&lt;/h2&gt;
+    &lt;h3&gt;&lt;a href=&quot;#&quot;&gt;HTML5 in Smashing Magazine!&lt;/a&gt;&lt;/h3&gt;
+&lt;/hgroup&gt;</code></pre>
+
+<p>CSS3新特性：</p>
+
+<p>边框圆角：</p>
+
+<pre><code>border-radius: 10px;
+-moz-border-radius: 10px;  // 声明用于基于Mozilla的浏览器，如Firefox浏览器
+-webkit-border-radius: 10px; // 声明基于WebKit的浏览器，如Safari浏览器</code></pre>
+
+<p>阴影：</p>
+
+<pre><code>box-shadow: 1px 1px 1px #DDD;</code></pre>
+
+<p>选择时：(这个之前写代码都没用过，第一次用还挺兴奋的)</p>
+
+<pre><code>::selection {background: #F6CF74; color: #fff;}</code></pre>
+<hr />
+<p>尊重原创，引用请标注出处，谢谢！</p></div>
+    <div>Posted on 10 May 2012</div>
+</div>
+
+    </section>
+    <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </footer>
+</div>
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+	
+</body>
+</html>

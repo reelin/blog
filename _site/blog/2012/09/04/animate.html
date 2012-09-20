@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Blog by reelin</title>
+
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/styles.css">
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/pygment_trac.css">
+    <script src="http://reelin.github.com/blog/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">喵呜</h1>
+        <p class="header">Reelin's blog</p>
+
+        <ul>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/tarball/master">Download TAR</a></li>
+            <li><a class="buttons github" href="https://github.com/reelin/blog">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/reelin">reelin</a></p>
+
+
+    </header>
+    <section>
+        <div class="post">
+    <h2>animate</h2>
+    <div><pre><code>/**
+ *  DOM动画方法扩展
+ *  使用方法：
+ *  document.getElementsByTagName(&#39;box&#39;)[0].animate(100, 300, 500);
+ */
+
+(function (d) {
+
+    // 判断是否有重名函数
+    if (d.animate) {
+        throw new Error(&#39;methods already exist&#39;);
+    }
+
+    Element.prototype.animate = function (width, height, time) {
+        var element = this,
+            originalWidth = _getComputedStyle(element, &#39;width&#39;),
+            originalHeight = _getComputedStyle(element, &#39;height&#39;),
+            widthRange = Math.abs(width - originalWidth),
+            heightRange = Math.abs(height - originalHeight),
+            //  让速度等于time/最大的差值
+            speed = (time &gt; 100) ? ((widthRange &lt; heightRange) ? time/heightRange : time/widthRange) : 5,
+            widthV = 1,
+            heightV = 1;
+
+        // 判断参数是否正确; 判断是否在进行其他的
+        if (width &lt; 0 || height &lt; 0|| time &lt; 0) {
+            alert(&#39;paramer must &gt;0&#39;);
+            return;
+        } 
+
+        // 进行新的animate调用则停止之前的动画
+        element.stop();
+       
+        function step() {
+            if (currentWidth === width &amp;&amp; currentHeight === height) {
+                console.log(&#39;Animate finished!&#39;);
+                return;
+            } else {
+                if (originalWidth !== width) {
+                    originalWidth = originalWidth + (width &gt; originalWidth) ? widthV : -widthV;
+
+                    element.style.width = originalWidth + &#39;px&#39;;
+                }
+                if (originalHeight !== height) {
+                    originalHeight = originalHeight + (height &gt; originalHeight) ? heightV : -heightV;
+                    element.style.height = originalHeight + &#39;px&#39;;
+            
+                }
+                element.animateTimer = setTimeout(step, speed);
+            }
+        }
+
+        // 中止其他animate
+        Element.property.stop = function () {
+            if (element.animateTimer) {
+                clearTimeout(element.animateTimer);
+            } 
+        }
+
+        // 用getComputedStyle得到当前元素的高和宽
+        function _getComputedStyle(element, property) {
+            return parseInt(window.getComputedStyle(element, null)[property]);
+        }
+
+        step();
+
+        return this;
+    };
+
+})(document);</code></pre>
+<hr />
+<p>尊重原创，引用请标注出处，谢谢！</p></div>
+    <div>Posted on 04 September 2012</div>
+</div>
+
+    </section>
+    <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </footer>
+</div>
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+	
+</body>
+</html>

@@ -1,0 +1,55 @@
+body {
+	font-family: "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+	line-height: 18px;
+	color: #333;
+}
+
+.float-left {
+	float: left;
+}
+
+/*
+ * 使用方法介绍区域样式
+*/
+#scroll {
+	background: #fff;
+	border: 1px solid #649cc7;
+	width: 950px;
+	height: 330px;
+	overflow: hidden;
+}
+
+/* 使用方法信息样式 */
+#information #title{
+	width: 250px;
+	padding: 2px 0;
+	background: #649cc7 url(../images/img_ribbon.gif) no-repeat 10px -8px;
+}
+
+#information h2 {
+	font-size: 1.3em;
+	color: #fff;
+	font-weight: bold;
+	padding-left: 50px;
+}
+
+#information ol {
+	list-style: none;
+	margin-top: 10px;
+}
+
+#information ol li {
+	padding: 8px;
+}
+
+/* active类样式 */
+#scroll #information .active {
+	font-weight: bold;
+	color: #07c;
+}
+
+/* 翻转图片区域样式 */
+#scroll #figure {
+	padding: 10px;
+}
+

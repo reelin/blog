@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Blog by reelin</title>
+
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/styles.css">
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/pygment_trac.css">
+    <script src="http://reelin.github.com/blog/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">喵呜</h1>
+        <p class="header">Reelin's blog</p>
+
+        <ul>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/tarball/master">Download TAR</a></li>
+            <li><a class="buttons github" href="https://github.com/reelin/blog">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/reelin">reelin</a></p>
+
+
+    </header>
+    <section>
+        <div class="post">
+    <h2>回调函数小demo</h2>
+    <div><ul>
+<li>
+<p>实现walkTheDom函数，接受两个参数，一个是根节点，另一个是回调函数。结构如下：</p>
+
+<pre><code>function walkTheDom(root, callback) {
+    // todo
+};</code></pre>
+
+<p>callback接受一个参数，就是当前遍历到的节点。walkTheDom的功能是，遍历所给根结点及其所有子树节点，对每个遍历到的节点都执行callback回调函数。使用示例：</p>
+
+<pre><code>walkTheDom(document.getElementById(&#39;wrapper&#39;), function (element) {
+    element.style.backgroundColor = &#39;green&#39;;
+});</code></pre>
+
+<p>该示例使用walkTheDom方法遍历id为wrapper的节点和它的所有子节点，将所有节点的背景色变成绿色。</p>
+
+<pre><code> // 使用方法：
+ walkTheDom2(document.body, function (element) {
+   	element.style.backgroundColor = &#39;green&#39;;
+ })；
+
+/*
+ * 方法一: 利用children函数进行遍历
+*/
+function walkTheDom(root, callback) {
+	var childrens = root.children,
+		count = childrens.length;
+	callback(root);
+	if (count === 0) {
+		return;
+	} else {
+		for(var i = 0; i &lt; count; i++) {
+			walkTheDom(childrens[i], callback);
+		}
+	}
+};
+
+walkTheDom(document.body, function (element) {
+    element.style.backgroundColor = &#39;green&#39;;
+});
+
+/*
+ * 方法二: 使用firstChild, nextSibling进行遍历
+*/
+function walkTheDom2(root, callback) {
+	var childrens = root.children,
+		count = childrens.length;
+	callback(root);
+	if (count == 0) {
+		return;
+	} else {
+		var first = root.firstChild;
+		do {
+			if (first.nodeType === 1) {
+				console.log(first);
+				walkTheDom2(first, callback);
+			}
+			first = first.nextSibling;
+		} while (first);
+	}
+};</code></pre>
+</li>
+</ul>
+
+<p>知识点总结：</p>
+
+<ol>
+<li>
+<p>children v.s. childNodes</p>
+
+<ul>
+<li>chilNodes得到的子节点有Text，children没有</li>
+</ul>
+</li>
+
+<li>
+<p>firstChild, nextSibling, previousSibling</p>
+
+<ul>
+<li>nextSibling中可能会有TextNode,判断TextNode可以用<code>nodeType === 1</code></li>
+</ul>
+</li>
+</ol>
+
+<p>3. 函数作为参数</p>
+
+<p>4. 怎么判断</p>
+<hr />
+<p>尊重原创，引用请标注出处，谢谢！</p></div>
+    <div>Posted on 22 August 2012</div>
+</div>
+
+    </section>
+    <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </footer>
+</div>
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+	
+</body>
+</html>

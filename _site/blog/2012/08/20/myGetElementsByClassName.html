@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Blog by reelin</title>
 
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/styles.css">
+    <link rel="stylesheet" href="http://reelin.github.com/blog/stylesheets/pygment_trac.css">
+    <script src="http://reelin.github.com/blog/javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,8 +16,8 @@
 <body>
 <div class="wrapper">
     <header>
-        <h1 class="header">ReeLin's Blog</h1>
-        <p class="header">myBlog</p>
+        <h1 class="header">喵呜</h1>
+        <p class="header">Reelin's blog</p>
 
         <ul>
             <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
@@ -31,43 +31,33 @@
     </header>
     <section>
         <div class="post">
-    <h2>Hello World!</h2>
-    <div><h1 id='hello_world'>Hello World!</h1>
+    <h2>myGetElementsByClassName</h2>
+    <div><ul>
+<li>
+<p>部分浏览器是不支持getElementsByClassName方法的，扩展Element，新增一个myGetElementsByClassName方法，以供跨浏览器使用</p>
 
-<h2 id='about_me'>About Me</h2>
-
-<p>reelin is coming!!</p>
-
-<pre><code>function hello() {
-	console.log(&quot;miaowu&quot;);
-}</code></pre>
-
-<blockquote>
-<p>To be or not to be this is a problem!</p>
-</blockquote>
+<pre><code>(function () {
+	Element.prototype.myGetElementsByClassName = function (name) {
+		var result = [],
+		    element = this,
+		    childrens = element.children,
+		    lenth = element.childElementCount;
+		for (var i = 0; i &lt; lenth; i++) {
+		    console.log(childrens[i].className);
+			// 递归查找子节点中是否有该类
+		    if (childrens[i].className.indexOf(name) !== -1) {
+		    	result.push(childrens[i]);
+		    }
+		    result = result.concat(childrens[i].myGetElementsByClassName(name));
+		}
+		return result;
+	}
+})(document);</code></pre>
+</li>
+</ul>
 <hr />
-<ul>
-<li>
-<p>list1</p>
-</li>
-
-<li>
-<p>list2</p>
-
-<ul>
-<li>subList1</li>
-
-<li>subList2</li>
-</ul>
-</li>
-</ul>
-
-<ol>
-<li>list1</li>
-
-<li>list2</li>
-</ol></div>
-    <div>Posted on Thu Sep 13 00:00:00 +0800 2012</div>
+<p>尊重原创，引用请标注出处，谢谢！</p></div>
+    <div>Posted on 20 August 2012</div>
 </div>
 
     </section>
