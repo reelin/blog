@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>animate</title>
+    <script type="text/javascript">
+        /**
+         * animate
+        */
+        (function (d) {
+        
+            // 判断是否有重名函数
+            if (d.animate) {
+                throw new Error('methods already exist');
+            }
+
+            Element.prototype.animate = function (width, height, time) {
+                var element = this,
+                    originalWidth = _getComputedStyle(element, 'width'),
+                    originalHeight = _getComputedStyle(element, 'height'),
+                    widthRange = Math.abs(width - originalWidth),
+                    heightRange = Math.abs(height - originalHeight),
+                    //  让速度等于time/最大的差值
+                    speed = (time > 100) ? ((widthRange < heightRange) ? time/heightRange : time/widthRange) : 5,
+                    widthV = 1,
+                    heightV = 1;
+
+                // 判断参数是否正确; 判断是否在进行其他的
+                if (width < 0 || height < 0|| time < 0) {
+                    alert('paramer must >0');
+                    return;
+                } 
+
+                // 进行新的animate调用则停止之前的动画
+                element.stop();
+               
+                function step() {
+                    if (currentWidth === width && currentHeight === height) {
+                        console.log('Animate finished!');
+                        return;
+                    } else {
+                        if (originalWidth !== width) {
+                            originalWidth = originalWidth + (width > originalWidth) ? widthV : -widthV;
+
+                            element.style.width = originalWidth + 'px';
+                        }
+                        if (originalHeight !== height) {
+                            originalHeight = originalHeight + (height > originalHeight) ? heightV : -heightV;
+                            element.style.height = originalHeight + 'px';
+                    
+                        }
+                        element.animateTimer = setTimeout(step, speed);
+                    }
+                }
+
+                // 中止其他animate
+                Element.property.stop = function () {
+                    if (element.animateTimer) {
+                        clearTimeout(element.animateTimer);
+                    } 
+                }
+
+                // 用getComputedStyle得到当前元素的高和宽
+                function _getComputedStyle(element, property) {
+                    return parseInt(window.getComputedStyle(element, null)[property]);
+                }
+
+                step();
+
+                return this;
+            };
+
+        })(document);
+
+    </script>
+</head>
+<body>
+    <div id="block" style="height:100px; width:100px; border:2px solid #ddd; background: #EEE;"></div>
+</body>
+</html>

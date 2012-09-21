@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Dragable cat</title>
+    <style type="text/css">
+        #cat1 {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            -webkit-transform: rotate(-80deg); 
+            -o-transform: rotate(-80deg);
+            -moz-transform: rotate(-80deg);
+            transform: rotate(-80deg);
+        }
+        #cat2 {
+            position: absolute;
+            left: 120px;
+            top: 70px;
+            -webkit-transform: rotate(-140deg); 
+            -o-transform: rotate(-140deg);
+            -moz-transform: rotate(-140deg);
+            transform: rotate(-140deg);
+        }
+        #miao {
+            position: absolute;
+            display: none;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <img src="oct.png" alt="octcat" id="cat1">
+    <img src="oct.png" alt="octcat" id="cat2">
+    <span id="miao">喵</span>
+    <script type="text/javascript">
+        (function (d) {
+          
+
+            Element.prototype.drag = function(flag) {
+                var element = this,
+                    elementX = 0,
+                    elementY = 0,
+                    originMouseX = 0,
+                    originMouseY = 0,
+                    isMoving = false;
+
+                element.onmousedown = function(e) {
+                    e.preventDefault();
+                    if (flag) {
+                        var xy = getXY(e);
+                        elementX = _getComputedStyle(element, 'left');
+                        elementY = _getComputedStyle(element, 'top');
+                        originMouseX = xy.x;
+                        originMouseY = xy.y;
+                        isMoving = true;
+                    }
+                }
+
+                document.addEventListener("mousemove", function(e) {
+                    e.preventDefault();
+                    var xy = getXY(e);
+                    if (isMoving) {  
+                        element.style.left = elementX + (xy.x - originMouseX) + "px";
+                        element.style.top = elementY + (xy.y - originMouseY) + "px";
+                    }
+                }, false);
+
+                element.onmouseup = function(e) {
+                    e.preventDefault();
+                    var xy = getXY(e);
+                    isMoving = false;
+                    originMouseX = xy.x;
+                    originMouseY = xy.y;
+                    elementX = _getComputedStyle(element, 'left');
+                    elementY = _getComputedStyle(element, 'top');
+                }
+                    
+
+                // 获取时间中鼠标的坐标，以{x: ,y: }的形式返回
+                function getXY(e) {
+                    var xy = {};
+                    if (window.event) {
+                        xy.x = window.event.clientX;
+                        xy.y = window.event.clientY;
+                    } else {
+                        xy.x = e.pageX;
+                        xy.y = e.pageY;
+                    }
+                    return xy;
+                }
+
+                // 获取Element对象的一个样式属性值
+                function _getComputedStyle(element, property) {
+                    return parseInt(window.getComputedStyle(element, null)[property]);
+                }
+            }
+        }(document));
+        document.getElementById("cat1").drag(true);
+        document.getElementById("cat2").drag(true);
+    </script>
+</body>
+</html>

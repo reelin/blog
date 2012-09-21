@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GetElementsByClassName</title>
+</head>
+<body>
+    <ul id="list">
+        <li class="context">1</li>
+            <ul id="list2">
+                <li class="context">5</li>
+                <li class="context">6</li>
+                <li class="context">7</li>
+            </ul>
+        <li class="context">2</li>
+            <ul id="list3">
+                <li class="context">8</li>
+                    <h1 class="context">naiteluo是个大傻逼</h1>
+                <li class="context">9</li>
+            </ul>
+        <li class="context">3</li>
+        <li class="context">4</li>
+    </ul>
+
+    <script type="text/javascript">
+    (function () {
+        Element.prototype.myGetElementsByClassName = function (name) {
+            var result = [],
+                element = this,
+                childrens = element.children,
+                lenth = element.childElementCount;
+                
+            for (var i = 0; i < lenth; i++) {
+                console.log(childrens[i].className);
+                if (childrens[i].className.indexOf(name) !== -1) {
+                    result.push(childrens[i]);
+                }
+                result = result.concat(childrens[i].myGetElementsByClassName(name));
+            }
+            // todo
+            return result;
+        }
+    })(document);
+
+    document.getElementById("list").myGetElementsByClassName("context");
+</script>
+</body>
+
