@@ -17,7 +17,7 @@
 <div class="wrapper">
     <header>
         <h1 class="header">喵呜呜</h1>
-        <p class="header">Reelin's blog</p>
+        <p class="header">I like green</p>
 
         <ul>
             <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
@@ -32,103 +32,119 @@
     <section>
         <div class="post">
     <h2>clear float</h2>
-    <div><img class='alignnone size-medium wp-image-21' title='1' src='http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/1-300x157.jpg' height='157' data-pinit='registered' alt='' width='300' />
-<pre><code>&lt;div class=&quot;parent&quot;&gt;
-    &lt;div class=&quot;float-a&quot;&gt;
-		&lt;p&gt;float-left&lt;/p&gt;
+    <div><p><img class="alignnone size-medium wp-image-21" title="1" src="http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/1-300x157.jpg" alt="" width="300" height="157" data-pinit="registered" /></p>
+
+<pre><code>&lt;div class="parent"&gt;
+    &lt;div class="float-a"&gt;
+        &lt;p&gt;float-left&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;float-b&quot;&gt;
-		&lt;p&gt;float-right&lt;/p&gt;
+    &lt;div class="float-b"&gt;
+        &lt;p&gt;float-right&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 .parent {
-	background: #eee;
-	border: 1px solid #aaa;
-	padding: 10px;
-	width: 500px;
+    background: #eee;
+    border: 1px solid #aaa;
+    padding: 10px;
+    width: 500px;
 }
 .float-a, .float-b{
-	background: #fff;
-	color: #000;
-	padding: 20px;
-	border: 1px solid #ddd;
-}</code></pre>
-
-<p>* 添加浮动后：</p>
-<img class='alignnone size-full wp-image-22' title='2' src='http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/2.jpg' data-pinit='registered' alt='' />
-<pre><code>.float-a {
-	float: left;
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border: 1px solid #ddd;
 }
-.float-b {
-	float: right;
-}</code></pre>
+</code></pre>
 
 <ul>
-<li>
-<p>如图,.parent由于.float-a .float-b流出文档流，现在完全没有包括他们，现在用clear来清除浮动</p>
+<li>添加浮动后：</li>
+</ul>
 
-<pre><code>&lt;div class=&quot;parent&quot;&gt;
-	&lt;div class=&quot;float-a&quot;&gt;
-		&lt;p&gt;float-left&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;float-b&quot;&gt;
-		&lt;p&gt;float-right&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;clear&quot;&gt;&lt;div&gt;
+
+<p><img class="alignnone size-full wp-image-22" title="2" src="http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/2.jpg" alt="" data-pinit="registered" /></p>
+
+<pre><code>.float-a {
+    float: left;
+}
+.float-b {
+    float: right;
+}
+</code></pre>
+
+<ul>
+<li><p>如图,.parent由于.float-a .float-b流出文档流，现在完全没有包括他们，现在用clear来清除浮动</p>
+
+<pre><code>&lt;div class="parent"&gt;
+    &lt;div class="float-a"&gt;
+        &lt;p&gt;float-left&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="float-b"&gt;
+        &lt;p&gt;float-right&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="clear"&gt;&lt;div&gt;
 &lt;/div&gt;
 
 .clear {
-	clear: both;
-}</code></pre>
-</li>
+    clear: both;
+}
+</code></pre></li>
 </ul>
-<img class='alignnone size-medium wp-image-24' title='3' src='http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/31-300x96.jpg' height='96' alt='' width='300' />
-<ul>
-<li>
-<p>添加一个没有实际内容的div.clear很浪费，可以选择使用：after伪类</p>
 
-<pre><code>&lt;div class=&quot;parent clear&quot;&gt;
-	&lt;div class=&quot;float-a&quot;&gt;
-		&lt;p&gt;float-left&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;float-b&quot;&gt;
-		&lt;p&gt;float-right&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;clear&quot;&gt;&lt;div&gt;
+
+<p><img class="alignnone size-medium wp-image-24" title="3" src="http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/31-300x96.jpg" alt="" width="300" height="96" /></p>
+
+<ul>
+<li><p>添加一个没有实际内容的div.clear很浪费，可以选择使用：after伪类</p>
+
+<pre><code>&lt;div class="parent clear"&gt;
+    &lt;div class="float-a"&gt;
+        &lt;p&gt;float-left&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="float-b"&gt;
+        &lt;p&gt;float-right&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="clear"&gt;&lt;div&gt;
 &lt;/div&gt;
 
 .clear:after {
-	content: &quot; &quot;;
-	height: 0;
-	visibility: hidden;
-	display: block;
-	clear: both;
-}</code></pre>
-</li>
-
-<li>
-<p>最简单的方法是使用overflow：hidden 或者 auto，不过hidden与auto稍有不同：</p>
+    content: " ";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+</code></pre></li>
+<li><p>最简单的方法是使用overflow：hidden 或者 auto，不过hidden与auto稍有不同：</p>
 
 <p>比如：float-b现在内容过长</p>
 
 <pre><code>.float-b {
-	float: right;
-	background: #C4EFEF;
-	width: 50px;
-}</code></pre>
+    float: right;
+    background: #C4EFEF;
+    width: 50px;
+}
+</code></pre>
 
 <ul>
 <li>用了overflow:hidden;之后，超出的部分被隐藏。</li>
 </ul>
-<img class='alignnone size-medium wp-image-38' title='未命名1' src='http://reelin-wordpress.stor.sinaapp.com/uploads/2012/03/未命名1-300x175.jpg' height='175' data-pinit='registered' alt='' width='300' />
+
+
+<p><img class="alignnone size-medium wp-image-38" title="未命名1" src="http://reelin-wordpress.stor.sinaapp.com/uploads/2012/03/未命名1-300x175.jpg" alt="" width="300" height="175" data-pinit="registered" /></p>
+
 <ul>
-<li>但是用overflow：auto;之后，则自动添加了滑动条。 <img class='alignnone size-medium wp-image-40' title='未命名' src='http://reelin-wordpress.stor.sinaapp.com/uploads/2012/03/未命名-300x146.jpg' height='146' data-pinit='registered' alt='' width='300' /></li>
+<li>但是用overflow：auto;之后，则自动添加了滑动条。
+<img class="alignnone size-medium wp-image-40" title="未命名" src="http://reelin-wordpress.stor.sinaapp.com/uploads/2012/03/未命名-300x146.jpg" alt="" width="300" height="146" data-pinit="registered" /></li>
 </ul>
 </li>
 </ul>
+
+
 <hr />
-<p>尊重原创，引用请标注出处，谢谢！</p></div>
+
+<p>尊重原创，引用请标注出处，谢谢！</p>
+</div>
     <div>Posted on 15 March 2012</div>
 </div>
 

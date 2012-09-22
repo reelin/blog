@@ -17,7 +17,7 @@
 <div class="wrapper">
     <header>
         <h1 class="header">喵呜呜</h1>
-        <p class="header">Reelin's blog</p>
+        <p class="header">I like green</p>
 
         <ul>
             <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
@@ -32,14 +32,14 @@
     <section>
         <div class="post">
     <h2>Dragable cat 1</h2>
-    <div><p>任意拖动一只绝对定位的小猫~ <a href='\code\exam\ex13.html'>快来玩玩小猫吧~~</a></p>
+    <div><p>任意拖动一只绝对定位的小猫~  <a href="\code\exam\ex13.html">快来玩玩小猫吧~~</a></p>
 
 <pre><code>&lt;!DOCTYPE HTML&gt;
-&lt;html lang=&quot;en-US&quot;&gt;
+&lt;html lang="en-US"&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta charset="UTF-8"&gt;
     &lt;title&gt;Dragable cat&lt;/title&gt;
-    &lt;style type=&quot;text/css&quot;&gt;
+    &lt;style type="text/css"&gt;
         #cat {
             position: absolute;
             left: 50px;
@@ -57,12 +57,12 @@
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;img src=&quot;oct.png&quot; alt=&quot;octcat&quot; id=&quot;cat&quot;&gt;
-    &lt;span id=&quot;miao&quot;&gt;喵&lt;/span&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;
+    &lt;img src="oct.png" alt="octcat" id="cat"&gt;
+    &lt;span id="miao"&gt;喵&lt;/span&gt;
+    &lt;script type="text/javascript"&gt;
         (function (d) {
-            var cat = d.getElementById(&#39;cat&#39;),
-                miao = d.getElementById(&#39;miao&#39;),
+            var cat = d.getElementById('cat'),
+                miao = d.getElementById('miao'),
                 catX = 0,
                 catY = 0,
                 originMouseX = 0,
@@ -72,8 +72,8 @@
             cat.onmousedown = function(e) {
                 e.preventDefault();
                 var xy = getXY(e);
-                catX = _getComputedStyle(cat, &#39;left&#39;);
-                catY = _getComputedStyle(cat, &#39;top&#39;);
+                catX = _getComputedStyle(cat, 'left');
+                catY = _getComputedStyle(cat, 'top');
                 originMouseX = xy.x;
                 originMouseY = xy.y;
                 flag = true;
@@ -83,8 +83,8 @@
                 e.preventDefault();
                 var xy = getXY(e);
                 if (flag) {  
-                    cat.style.left = catX + (xy.x - originMouseX) + &quot;px&quot;;
-                    cat.style.top = catY + (xy.y - originMouseY) + &quot;px&quot;;
+                    cat.style.left = catX + (xy.x - originMouseX) + "px";
+                    cat.style.top = catY + (xy.y - originMouseY) + "px";
                 }
             }
 
@@ -94,8 +94,8 @@
                 flag = false;
                 originMouseX = xy.x;
                 originMouseY = xy.y;
-                catX = _getComputedStyle(cat, &#39;left&#39;);
-                catY = _getComputedStyle(cat, &#39;top&#39;);
+                catX = _getComputedStyle(cat, 'left');
+                catY = _getComputedStyle(cat, 'top');
             }
 
             // 获取时间中鼠标的坐标，以{x: ,y: }的形式返回
@@ -114,18 +114,18 @@
             function move() {
                 var a = getXY();
                 if (flag) {
-                    console.log(&quot;click&quot;);
+                    console.log("click");
                     console.log(catX);
                     console.log(catY);
                     catX = a.x;
                     catY = a.y;   
-                    cat.style.left = catX + &quot;px&quot;;
-                    cat.style.top = catY + &quot;px&quot;;
+                    cat.style.left = catX + "px";
+                    cat.style.top = catY + "px";
                     console.log(a.x);
                     console.log(a.y);
                     moveaTimer = setTimeout(move, 10);
                 } else {
-                    
+
                     clearTimeout(moveaTimer);
                 }
             }
@@ -137,19 +137,19 @@
         }(document));
     &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
 
 <ul>
-<li>
-<p>开始将mousemove事件添加到小猫的身上，发现动作很不连贯，而且动作发生也是在整个document中，不只是在小猫身上，所以改成的document的事件，拖动动作连贯了很多。</p>
-</li>
-
-<li>
-<p>开始将鼠标移动的位置直接赋值给小猫的位置，点击小猫的时候，小猫移动了一段距离，然后改成小猫的位置加上鼠标的位移。这样一开始点击的时候，鼠标的位移是0，小猫就不会出现“跳动”的情况。</p>
-</li>
+<li><p>开始将mousemove事件添加到小猫的身上，发现动作很不连贯，而且动作发生也是在整个document中，不只是在小猫身上，所以改成的document的事件，拖动动作连贯了很多。</p></li>
+<li><p>开始将鼠标移动的位置直接赋值给小猫的位置，点击小猫的时候，小猫移动了一段距离，然后改成小猫的位置加上鼠标的位移。这样一开始点击的时候，鼠标的位移是0，小猫就不会出现“跳动”的情况。</p></li>
 </ul>
+
+
 <hr />
-<p>尊重原创，引用请标注出处，谢谢！</p></div>
+
+<p>尊重原创，引用请标注出处，谢谢！</p>
+</div>
     <div>Posted on 15 September 2012</div>
 </div>
 

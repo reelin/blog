@@ -17,7 +17,7 @@
 <div class="wrapper">
     <header>
         <h1 class="header">喵呜呜</h1>
-        <p class="header">Reelin's blog</p>
+        <p class="header">I like green</p>
 
         <ul>
             <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
@@ -31,12 +31,14 @@
     </header>
     <section>
         <div class="post">
-    <h2>Dragable cat 1</h2>
+    <h2>Dragable cat 2</h2>
     <div><p>将之前的代码重构一下，写成一个Element的扩展drag，当给drag传入true时，元素则可拖拽，传入false则取消可拖拽状态。</p>
-<a href='\code\exam\ex14.html'>拖动更多的小猫，哈哈~~~</a>
+
+<p><a href="\code\exam\ex14.html">拖动更多的小猫，哈哈~~~</a></p>
+
 <pre><code>/*
 * 使用方法： 
-* document.getElementById(&quot;ID&quot;).drag(true);
+* document.getElementById("ID").drag(true);
 */
 (function (d) {
 
@@ -52,20 +54,20 @@
                 e.preventDefault();
                 if (flag) {
                     var xy = getXY(e);
-                    elementX = _getComputedStyle(element, &#39;left&#39;);
-                    elementY = _getComputedStyle(element, &#39;top&#39;);
+                    elementX = _getComputedStyle(element, 'left');
+                    elementY = _getComputedStyle(element, 'top');
                     originMouseX = xy.x;
                     originMouseY = xy.y;
                     isMoving = true;
                 }
             }
 
-            document.addEventListener(&quot;mousemove&quot;, function(e) {
+            document.addEventListener("mousemove", function(e) {
                 e.preventDefault();
                 var xy = getXY(e);
                 if (isMoving) {  
-                    element.style.left = elementX + (xy.x - originMouseX) + &quot;px&quot;;
-                    element.style.top = elementY + (xy.y - originMouseY) + &quot;px&quot;;
+                    element.style.left = elementX + (xy.x - originMouseX) + "px";
+                    element.style.top = elementY + (xy.y - originMouseY) + "px";
                 }
             }, false);
 
@@ -75,10 +77,10 @@
                 isMoving = false;
                 originMouseX = xy.x;
                 originMouseY = xy.y;
-                elementX = _getComputedStyle(element, &#39;left&#39;);
-                elementY = _getComputedStyle(element, &#39;top&#39;);
+                elementX = _getComputedStyle(element, 'left');
+                elementY = _getComputedStyle(element, 'top');
             }
-                
+
 
             // 获取时间中鼠标的坐标，以{x: ,y: }的形式返回
             function getXY(e) {
@@ -98,27 +100,25 @@
                 return parseInt(window.getComputedStyle(element, null)[property]);
             }
         }
-    }(document));</code></pre>
+    }(document));
+</code></pre>
 
 <ul>
-<li>
-<p>小猫是绝对定位的哦~~而且有top，left的值</p>
-</li>
-
-<li>
-<p>添加多了一只小猫，让cat1可拖动，然后拖动后，让cat2可拖动，然后再拖动cat1，就不行了。在高手的指点下，得到一颗明星addEventListener()</p>
+<li><p>小猫是绝对定位的哦~~而且有top，left的值</p></li>
+<li><p>添加多了一只小猫，让cat1可拖动，然后拖动后，让cat2可拖动，然后再拖动cat1，就不行了。在高手的指点下，得到一颗明星addEventListener()</p>
 
 <ul>
 <li>能通过多次调用addEventListener()为同一个对象注册同一事件类型的多个处理程序函数。(犀牛书)</li>
 </ul>
 </li>
-
-<li>
-<p>给document添加addEventListener()后，小猫可以轮着拖动咯~~</p>
-</li>
+<li><p>给document添加addEventListener()后，小猫可以轮着拖动咯~~</p></li>
 </ul>
+
+
 <hr />
-<p>尊重原创，引用请标注出处，谢谢！</p></div>
+
+<p>尊重原创，引用请标注出处，谢谢！</p>
+</div>
     <div>Posted on 15 September 2012</div>
 </div>
 

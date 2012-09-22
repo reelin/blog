@@ -1,5 +1,3 @@
-safe: true
-sourse: https://github.com/reelin/blog.git
-lsi: false
 pygments: true
+markdown: rdiscount
 permalink: /blog/:year/:month/:day/:title.html

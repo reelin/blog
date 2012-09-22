@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Play Cat</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">喵呜呜</h1>
+        <p class="header">I like green</p>
+
+        <ul>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/tarball/master">Download TAR</a></li>
+            <li><a class="buttons github" href="https://github.com/reelin/blog">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/reelin">reelin</a></p>
+
+
+    </header>
+    <section>
+        <div class="post">
+    <h2>Dom操作</h2>
+    <div><pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        /* basic style */
+        #items {
+            width: 200px;
+            padding: 5px 5px 5px 30px;
+            border: 1px solid #dddddd;
+            overflow: hidden;
+        }
+        .item {
+            margin-bottom: 3px;
+            padding: 2px;
+        }
+        .rules {
+            font-size: 12px;
+        }
+        /* 选中状态样式 */
+        .selected {
+            border: 1px dashed #dddddd;
+        }
+    &lt;/style&gt;
+    &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul id="items"&gt;
+        &lt;li class="item"&gt;item 1&lt;/li&gt;
+        &lt;li class="item"&gt;item 2&lt;/li&gt;
+        &lt;li class="item"&gt;item 3&lt;/li&gt;
+        &lt;li class="item"&gt;item 4&lt;/li&gt;
+        &lt;li class="item"&gt;item 5&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div&gt;
+        &lt;input type="text" id="item_name"&gt;
+        &lt;button id="add"&gt;添加&lt;/button&gt; | 
+        &lt;button id="delete"&gt;删除&lt;/button&gt; | 
+        &lt;button id="all_delete"&gt;全部删除&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+        规则：
+    &lt;/p&gt;
+    &lt;ol class="rules"&gt;
+        &lt;li&gt;在输入框中输入新item名后点击添加按钮，则在列表最后添加新item。&lt;/li&gt;
+        &lt;li&gt;单击item，item被选中，再次单击则取消选中。选中状态类名为selected。&lt;/li&gt;
+        &lt;li&gt;点击删除按钮，则删除列表中被选中的item。未选中任何item，则弹出'未选中任何item'提示。&lt;/li&gt;
+        &lt;li&gt;点击全部删除按钮，则删除列表中的全部item。&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;script type="text/javascript" src="11.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<hr />
+
+<p>javascript实现：</p>
+
+<pre><code>(function() {
+    var button = document.getElementsByTagName("button"),
+        addBtn = button[0],
+        deleteBtn = button[1],
+        allDeleteBtn = button[2],
+        items = document.getElementById("items");
+
+    // 创建一个新的item节点
+    function createItem() {
+        var newText = document.createTextNode("item " + (items.children.length+1) ),
+            newItem = document.createElement("li");
+
+        newItem.appendChild(newText);
+        newItem.className = ("item");
+
+        return newItem;
+    }
+
+    // 在input里面输入item，点击添加则添加一个新的item节点
+    addBtn.onclick = function () {
+    var itemValue = document.getElementById("item_name").value;
+
+        if (itemValue == "item") {
+            newItem = createItem();
+            items.appendChild(newItem);
+
+            // 给新添加的节点添加事件
+            newItem.onclick = addSelected;
+
+        }
+    };
+
+    // 点击删除则删除选中的item
+    deleteBtn.onclick = function() {
+        var selected = document.getElementsByClassName("selected"),
+            selectedNum = selected.length;
+
+        // 未选中则提示
+        if (selectedNum == 0) {
+            alert("未选中任何item");
+            return;
+        } else {
+            // 在删除后selected类元素的长度在不断变化
+            while (document.getElementsByClassName("selected").length &gt; 0) {
+                items.removeChild(selected[0]);
+            };
+        }
+    };
+
+    // 删除全部item节点
+    allDeleteBtn.onclick = function() {
+        while (items.children.length &gt; 0) {
+            items.removeChild(items.children[0]);
+        }
+    };
+
+    // 给每个有selected类的节点添加onclick事件
+    for (var i = 0; i &lt; items.children.length; i ++) {
+        console.log(items.children.length);
+        items.children[i].onclick = addSelected;
+    }
+
+    // 添加selected类
+    function addSelected() {
+        if (this.className === "item") {
+            this.className = this.className + " selected";
+        } else {
+            this.className = "item";
+        }
+    };
+}());
+</code></pre>
+
+<p>jQuery实现：</p>
+
+<pre><code>(function ($) {
+    var items = $("#items"),
+        itemNum = $(".item").length;
+
+    function addSelecte() {
+        var that = $(this);
+        if (that.hasClass("selected")) {
+            that.removeClass("selected");
+        } else {
+            that.addClass("selected");
+        }
+    }
+
+    $("#add").click(function() {
+        var input = $("#item_name");
+
+        if (input[0].value === "item") {
+            var newItem = $('&lt;li class="item"&gt;item ' + (itemNum+1) + '&lt;/li&gt;');
+            items.append(newItem);
+
+            itemNum += 1;
+        }
+    });
+
+    $(".item").live('click', addSelecte);
+
+    $("#delete").click(function() {
+        itemNum -= $(".selected").length;
+        $(".selected").remove();
+    });
+
+    $("#all_delete").click(function() {
+        $(".item").remove();
+        itemNum = 0;
+    });
+}(jQuery));
+</code></pre>
+
+<p>用JS实现的时候遇到几个问题：</p>
+
+<ol>
+<li>传入的item的序号问题。一开始添加出来的都是Item6,后来调试发现忘记赋值给外函数的变量itemNum.</li>
+<li>添加后的item元素都不能添加selected类。给添加后的元素也增加监听的事件，然后OK了。</li>
+<li>删除selected类元素的时候，总是有剩余。调试后发现每次删除后.selected的长度都在变化，用了一个猥琐的方法，长度>0的时候，就一直删除第0个。更好的方法是在删除后，将i--，因为删除的元素的下一个元素代替了删除的元素。</li>
+</ol>
+
+
+<p>用jQuery实现的话，方法和之前是一样的，不过就是一些函数的使用。</p>
+
+<ul>
+<li>js中的添加节点<code>appendChild</code> 与 jquery的<code>append</code></li>
+<li>js中的删除节点<code>removeChild</code> 与 jquery的<code>remove</code></li>
+<li>js中的替换节点<code>replaceChild</code> 与 jquery的<code>replace</code></li>
+<li>js中的<code>className</code>元素的类名</li>
+<li>jquery的<code>hasClass</code>查看该元素是否有该类</li>
+<li>jquery的<code>addClass</code>添加类</li>
+<li>jquery的<code>removeClass</code>删除已有的类</li>
+<li>以及jquery中live绑定和bind绑定的区别
+
+<ul>
+<li>live绑定的元素事件不仅有当前HTML里面的元素，也能将新增加的元素进行绑定</li>
+<li>bind只能绑定文件加载后的HTML里面的元素，不能是新增的</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<p>尊重原创，引用请标注出处，谢谢！</p>
+</div>
+    <div>Posted on 11 September 2012</div>
+</div>
+
+    </section>
+    <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </footer>
+</div>
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+	
+</body>
+</html>

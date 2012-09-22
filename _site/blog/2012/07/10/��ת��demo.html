@@ -17,7 +17,7 @@
 <div class="wrapper">
     <header>
         <h1 class="header">喵呜呜</h1>
-        <p class="header">Reelin's blog</p>
+        <p class="header">I like green</p>
 
         <ul>
             <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
@@ -32,142 +32,149 @@
     <section>
         <div class="post">
     <h2>翻转器demo</h2>
-    <div><p>根据提示文字的改变，对应的图像翻转. <a href='/code/demo'>查看效果</a></p>
+    <div><p>根据提示文字的改变，对应的图像翻转.
+<a href="/code/demo">查看效果</a></p>
 
 <p>HTML：文字和图像分成两个块</p>
-<img src='/code/DEMO/images/div.jpg' />
+
+<p><img src="/code/DEMO/images/div.jpg" /></p>
+
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-	&lt;head&gt;
-		&lt;meta charset=&#39;utf-8&#39; /&gt;
-		&lt;title&gt;Draw And Guess&lt;/title&gt;
-		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/scroll.css&quot; /&gt;
-		&lt;script type=&quot;text/javascript&quot; src=&quot;javascript/jquery-1.7.2.min.js&quot;&gt;&lt;/script&gt;
-		&lt;script type=&quot;text/javascript&quot; src=&quot;javascript/scroll.js&quot;&gt;&lt;/script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div id=&quot;scroll&quot;&gt;
-			&lt;div id=&quot;information&quot; class=&quot;float-left&quot;&gt;
-				&lt;div id=&quot;title&quot;&gt;&lt;h2&gt;如何使用&lt;/h2&gt;&lt;/div&gt;
-				&lt;ol&gt;
-					&lt;li class=&quot;active&quot;&gt;1. 登陆。输入邮箱，密码进行登陆。&lt;/li&gt;
-					&lt;li&gt;2. 在线人数不小于两人时，即可点击开始，开始游戏。&lt;/li&gt;
-					&lt;li&gt;3. 轮到的人画图，其余人猜。画图的人根据给出词语画图。&lt;/li&gt;
-					&lt;li&gt;4. 点击不同的笔有不同的效果，根据自己需要选择。&lt;/li&gt;
-					&lt;li&gt;5. 可以选择需要的颜色。&lt;/li&gt;
-					&lt;li&gt;6.其余人猜画的是什么，猜对加分，猜的越快分数越高。&lt;/li&gt;
-				&lt;/ol&gt;
-			&lt;/div&gt;
-			&lt;div id=&quot;figure&quot; class=&quot;float-left&quot;&gt;
-				&lt;img id=&quot;scroll-img&quot; alt=&quot;information figure&quot; src=&quot;/DEMO/images/information1.jpg&quot; /&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+    &lt;head&gt;
+        &lt;meta charset='utf-8' /&gt;
+        &lt;title&gt;Draw And Guess&lt;/title&gt;
+        &lt;link rel="stylesheet" type="text/css" href="css/scroll.css" /&gt;
+        &lt;script type="text/javascript" src="javascript/jquery-1.7.2.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="javascript/scroll.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="scroll"&gt;
+            &lt;div id="information" class="float-left"&gt;
+                &lt;div id="title"&gt;&lt;h2&gt;如何使用&lt;/h2&gt;&lt;/div&gt;
+                &lt;ol&gt;
+                    &lt;li class="active"&gt;1. 登陆。输入邮箱，密码进行登陆。&lt;/li&gt;
+                    &lt;li&gt;2. 在线人数不小于两人时，即可点击开始，开始游戏。&lt;/li&gt;
+                    &lt;li&gt;3. 轮到的人画图，其余人猜。画图的人根据给出词语画图。&lt;/li&gt;
+                    &lt;li&gt;4. 点击不同的笔有不同的效果，根据自己需要选择。&lt;/li&gt;
+                    &lt;li&gt;5. 可以选择需要的颜色。&lt;/li&gt;
+                    &lt;li&gt;6.其余人猜画的是什么，猜对加分，猜的越快分数越高。&lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/div&gt;
+            &lt;div id="figure" class="float-left"&gt;
+                &lt;img id="scroll-img" alt="information figure" src="/DEMO/images/information1.jpg" /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
 <p>CSS:</p>
 
 <pre><code>body {
-	font-family: &quot;Hiragino Sans GB&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, Sans-serif;
-	line-height: 18px;
-	color: #333;
+    font-family: "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    line-height: 18px;
+    color: #333;
 }
 
 .float-left {
-	float: left;
+    float: left;
 }
 
 /*
  * 使用方法介绍区域样式
 */
 #scroll {
-	background: #fff;
-	border: 1px solid #649cc7;
-	width: 950px;
-	height: 330px;
-	overflow: hidden;
+    background: #fff;
+    border: 1px solid #649cc7;
+    width: 950px;
+    height: 330px;
+    overflow: hidden;
 }
 
 /* 使用方法信息样式 */
 #information #title{
-	width: 250px;
-	padding: 2px 0;
-	background: #649cc7 url(../images/img_ribbon.gif) no-repeat 10px -8px;
+    width: 250px;
+    padding: 2px 0;
+    background: #649cc7 url(../images/img_ribbon.gif) no-repeat 10px -8px;
 }
 
 #information h2 {
-	font-size: 1.3em;
-	color: #fff;
-	font-weight: bold;
-	padding-left: 50px;
+    font-size: 1.3em;
+    color: #fff;
+    font-weight: bold;
+    padding-left: 50px;
 }
 
 #information ol {
-	list-style: none;
-	margin-top: 10px;
+    list-style: none;
+    margin-top: 10px;
 }
 
 #information ol li {
-	padding: 8px;
+    padding: 8px;
 }
 
 /* active类样式 */
 #scroll #information .active {
-	font-weight: bold;
-	color: #07c;
+    font-weight: bold;
+    color: #07c;
 }
 
 /* 翻转图片区域样式 */
 #scroll #figure {
-	padding: 10px;
-}</code></pre>
+    padding: 10px;
+}
+</code></pre>
 
 <p>JS:</p>
 
 <pre><code>$(function() {
-	changeImg();
-	changeInformation(); 
+    changeImg();
+    changeInformation(); 
 });
 
 var i = 0;
 var interval;
 
 function changeImg() {
-	
-	if( i == 6 )  i = 0;
-	++i;
 
-	var img_src = &quot;images/information&quot; + i + &quot;.jpg&quot;;
-	
-	$(&quot;#scroll-img&quot;).attr(&quot;src&quot;, img_src);
-	$(&quot;#scroll-img&quot;).fadeIn(1500);
-	$(&quot;.active&quot;).removeClass(&quot;active&quot;);
-	$(&quot;li&quot;)[i-1].className = &quot;active&quot;;
+    if( i == 6 )  i = 0;
+    ++i;
 
-	console.log(i);
-	interval = setTimeout(changeImg, 2500);
-	$(&quot;#scroll-img&quot;).fadeOut(800);
+    var img_src = "images/information" + i + ".jpg";
+
+    $("#scroll-img").attr("src", img_src);
+    $("#scroll-img").fadeIn(1500);
+    $(".active").removeClass("active");
+    $("li")[i-1].className = "active";
+
+    console.log(i);
+    interval = setTimeout(changeImg, 2500);
+    $("#scroll-img").fadeOut(800);
 }
 
 function changeInformation() {
-	$(&quot;li&quot;).bind( { 
-		mouseover : function() {
-			interval = clearInterval(interval);
+    $("li").bind( { 
+        mouseover : function() {
+            interval = clearInterval(interval);
 
-			var interge = parseInt(this.innerHTML);
+            var interge = parseInt(this.innerHTML);
 
-			$(&quot;#scroll-img&quot;).attr(&quot;src&quot;, &quot;images/information&quot; + interge + &quot;.jpg&quot;);
-			$(&quot;#scroll-img&quot;).stop(true,true);
-			$(&quot;#scroll-img&quot;).show();
-			$(this).css(&quot;cursor&quot;,&quot;pointer&quot;);
-			$(&quot;.active&quot;).removeClass(&quot;active&quot;);
-			$(this).addClass(&quot;active&quot;);
-		}, 
-		mouseout : function() {
-			changeImg();
-		}
-	});
-}</code></pre></div>
+            $("#scroll-img").attr("src", "images/information" + interge + ".jpg");
+            $("#scroll-img").stop(true,true);
+            $("#scroll-img").show();
+            $(this).css("cursor","pointer");
+            $(".active").removeClass("active");
+            $(this).addClass("active");
+        }, 
+        mouseout : function() {
+            changeImg();
+        }
+    });
+}
+</code></pre>
+</div>
     <div>Posted on 10 July 2012</div>
 </div>
 

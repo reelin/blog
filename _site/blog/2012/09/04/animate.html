@@ -17,7 +17,7 @@
 <div class="wrapper">
     <header>
         <h1 class="header">喵呜呜</h1>
-        <p class="header">Reelin's blog</p>
+        <p class="header">I like green</p>
 
         <ul>
             <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
@@ -35,20 +35,20 @@
     <div><pre><code>/**
  *  DOM动画方法扩展
  *  使用方法：
- *  document.getElementsByTagName(&#39;box&#39;)[0].animate(100, 300, 500);
+ *  document.getElementsByTagName('box')[0].animate(100, 300, 500);
  */
 
 (function (d) {
 
     // 判断是否有重名函数
     if (d.animate) {
-        throw new Error(&#39;methods already exist&#39;);
+        throw new Error('methods already exist');
     }
 
     Element.prototype.animate = function (width, height, time) {
         var element = this,
-            originalWidth = _getComputedStyle(element, &#39;width&#39;),
-            originalHeight = _getComputedStyle(element, &#39;height&#39;),
+            originalWidth = _getComputedStyle(element, 'width'),
+            originalHeight = _getComputedStyle(element, 'height'),
             widthRange = Math.abs(width - originalWidth),
             heightRange = Math.abs(height - originalHeight),
             //  让速度等于time/最大的差值
@@ -58,27 +58,27 @@
 
         // 判断参数是否正确; 判断是否在进行其他的
         if (width &lt; 0 || height &lt; 0|| time &lt; 0) {
-            alert(&#39;paramer must &gt;0&#39;);
+            alert('paramer must &gt;0');
             return;
         } 
 
         // 进行新的animate调用则停止之前的动画
         element.stop();
-       
+
         function step() {
             if (currentWidth === width &amp;&amp; currentHeight === height) {
-                console.log(&#39;Animate finished!&#39;);
+                console.log('Animate finished!');
                 return;
             } else {
                 if (originalWidth !== width) {
                     originalWidth = originalWidth + (width &gt; originalWidth) ? widthV : -widthV;
 
-                    element.style.width = originalWidth + &#39;px&#39;;
+                    element.style.width = originalWidth + 'px';
                 }
                 if (originalHeight !== height) {
                     originalHeight = originalHeight + (height &gt; originalHeight) ? heightV : -heightV;
-                    element.style.height = originalHeight + &#39;px&#39;;
-            
+                    element.style.height = originalHeight + 'px';
+
                 }
                 element.animateTimer = setTimeout(step, speed);
             }
@@ -101,9 +101,13 @@
         return this;
     };
 
-})(document);</code></pre>
+})(document);
+</code></pre>
+
 <hr />
-<p>尊重原创，引用请标注出处，谢谢！</p></div>
+
+<p>尊重原创，引用请标注出处，谢谢！</p>
+</div>
     <div>Posted on 04 September 2012</div>
 </div>
 
