@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Play Cat</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="header">喵呜呜</h1>
+        <p class="header">I like green</p>
+
+        <ul>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
+            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/tarball/master">Download TAR</a></li>
+            <li><a class="buttons github" href="https://github.com/reelin/blog">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/reelin">reelin</a></p>
+
+
+    </header>
+    <section>
+        <div class="post">
+    <h2>三道搜狐面试题</h2>
+    <div><p>题目一，实现一个遍历数组或对象里所有成员的迭代器</p>
+
+<pre><code>   var each = function(obj, fn){
+        //+++++++++++答题区域+++++++++++
+
+        //+++++++++++答题结束+++++++++++
+    };
+
+    try{
+        var data1 = [4,5,6,7,8,9,10,11,12];
+        var data2 = {
+        "a": 4,
+        "b": 5,
+        "c": 6
+        };
+
+        console.group(data1);
+
+        each(data1, function(o){
+            if( 6 == this )
+                return true;
+            else if( 8 == this )
+                return false;
+            console.log(o + ": \"" + this + "\"");
+        });
+
+        console.groupEnd();
+
+        /*------[执行结果]------
+
+       1: "4"
+       2: "5"
+       4: "7"
+
+       ------------------*/
+
+        console.group(data2);
+
+        each(data2, function(v, n){
+            if( 5 == this )
+                return true;
+            console.log(n + ": \"" + v + "\"");
+        });
+
+        console.groupEnd();
+
+        /*------[执行结果]------
+
+       a: "4"
+       c: "6"
+
+       ------------------*/
+
+    }catch(e){
+        console.error("执行出错，错误信息: " + e);
+    }
+</code></pre>
+
+<p>题目二，实现一个叫Man的类，包含attr, words, say三个方法</p>
+
+<pre><code>   var Man;
+    //+++++++++++答题区域+++++++++++
+
+    //+++++++++++答题结束+++++++++++
+
+    try{
+
+        var me = Man({ fullname: "小红" });
+        var she = new Man({ fullname: "小红" });
+
+        console.group();
+        console.info("我的名字是：" + me.attr("fullname") + "\n我的性别是：" + me.attr("gender"));
+        console.groupEnd();
+        /*------[执行结果]------
+
+       我的名字是：小红
+       我的性别是：&lt;用户未输入&gt;
+
+       ------------------*/
+
+        me.attr("fullname", "小明");
+        me.attr("gender", "男");
+        me.fullname = "废柴";
+        me.gender = "人妖";
+        she.attr("gender", "女");
+
+        console.group();
+        console.info("我的名字是：" + me.attr("fullname") + "\n我的性别是：" + me.attr("gender"));
+        console.groupEnd();
+        /*------[执行结果]------
+
+       我的名字是：小明
+       我的性别是：男
+
+       ------------------*/
+
+        console.group();
+        console.info("我的名字是：" + she.attr("fullname") + "\n我的性别是：" + she.attr("gender"));
+        console.groupEnd();
+        /*------[执行结果]------
+
+       我的名字是：小红
+       我的性别是：女
+
+       ------------------*/
+
+        me.attr({
+                "words-limit": 3,
+                "words-emote": "微笑"
+        });
+        me.words("我喜欢看视频。");
+        me.words("我们的办公室太漂亮了。");
+        me.words("视频里美女真多！");
+        me.words("我平时都看优酷！");
+
+        console.group();
+        console.log(me.say());
+        /*------[执行结果]------
+
+       小明微笑："我喜欢看视频。我们的办公室太漂亮了。视频里美女真多！"
+
+       ------------------*/
+
+        me.attr({
+                "words-limit": 2,
+                "words-emote": "喊"
+        });
+
+        console.log(me.say());
+        console.groupEnd();
+        /*------[执行结果]------
+
+       小明喊："我喜欢看视频。我们的办公室太漂亮了。"
+
+       ------------------*/
+
+    }catch(e){
+        console.error("执行出错，错误信息: " + e);
+    }
+</code></pre>
+
+<p>题目三，实现一个URI解析方法，把url里#之后的参数解析成指定的数据结构</p>
+
+<pre><code>   function urlParser(s){
+        //+++++++++++答题区域+++++++++++
+
+        //+++++++++++答题结束+++++++++++
+    }
+
+    try{
+        var url1 = "http://www.abc.com/m/s/#page/2/?type=latest_videos&amp;page_size=20";
+        var url2 = "http://www.abc.com/m/s/#type=latest_videos&amp;page_size=20";
+        var url3 = "http://www.abc.com/m/s/#page?type=latest_videos&amp;page_size=20";
+
+        console.group();
+        console.info( urlParser(url1) );
+        console.info( urlParser(url2) );
+        console.info( urlParser(url3) );
+        console.groupEnd();
+        /*------[执行结果]------
+
+       ["page", "2", { "type": "latest_videos", "page_size": 20 }]
+       [{ "type": "latest_videos", "page_size": 20 }]
+       ["page", { "type": "latest_videos", "page_size": 20 }]
+
+       ------------------*/
+
+    }catch(e){
+        console.error("执行出错，错误信息: " + e);
+    }
+</code></pre>
+</div>
+    <div>Posted on 22 September 2012</div>
+</div>
+
+    </section>
+    <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </footer>
+</div>
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+	
+</body>
+</html>

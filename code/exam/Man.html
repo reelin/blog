@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>man</title>
+</head>
+<body>
+    <p>打开console查看运行结果~</p>
+    <script type="text/javascript">
+        var Man;
+
+        Man = function(obj) {
+            // 判断是否属于Man这个类
+            if (this.constructor !== Man) {
+                return new Man(obj);
+            }
+            // 私有属性
+            var fullname = obj.fullname || "<用户未输入>",
+                gender = obj.gender || "<用户未输入>";
+
+            // setter赋值
+            this.set_fullname = function(value) {
+                fullname = value;
+            }
+
+            this.set_gender = function(value) {
+                gender = value;
+            }
+
+            // getter取值
+            this.get_fullname = function() {
+                return fullname;
+            }
+
+            this.get_gender = function() {
+                return gender;
+            }
+
+            // 存放words的数组
+            this.sayWords = [];
+            
+        };
+
+        Man.prototype.attr = function() { 
+            var arg0,
+                arg1;
+
+            // 根据传入参数不同进行分类处理
+            if (arguments.length == 1) {
+                arg0 = arguments[0];
+                // 单个字符串的情况, getter取值
+                if (typeof arg0 === "string") {
+                    if (arg0 === "fullname") {
+                        return this.get_fullname();
+                    } else if (arg0 === "gender") {
+                        return this.get_gender();
+                    } else {
+                      return this[arg0] || "<用户未输入>";
+                    }
+                } 
+                // 对象的情况, 多个setter赋值
+                else if (typeof arg0 === "object") {
+                    for (pro in arg0) {
+                        if (arg0.hasOwnProperty(pro)) {
+                            this[pro] = arg0[pro];
+                        }
+                    }
+                }
+                
+            }
+
+            // 两个字符串的情况，setter赋值
+            if (arguments.length == 2) {
+                arg0 = arguments[0];
+                arg1 = arguments[1];
+
+                if (arg0 === "fullname") {
+                   this.set_fullname(arg1);
+                   return this.get_fullname();
+                }  else if (arg0 === "gender") {
+                    this.set_gender(arg1);
+                    return this.get_gender();
+                }   else {
+                    return this[arg0] = arg1;
+                }
+            }
+        };
+
+        Man.prototype.words = function() {
+            var arg0 = arguments[0];
+            if (typeof arg0 === "string") {
+                this.sayWords.push(arg0);
+            }
+        };
+
+        Man.prototype.say = function() {
+            var temp = "",
+                len ;
+            // 根据words-limit长度输出words个数
+            if (this["words-emote"]) {
+                len = this["words-limit"];
+                for (var i = 0; i < len; i++) {
+                    temp = temp.concat(this.sayWords[i]);
+                }
+            }
+            return this.get_fullname() + this["words-emote"] + ': "'  + temp + '"';
+        }
+
+              
+        try{
+
+          var me = Man({ fullname: "小红" });
+          var she = new Man({ fullname: "小红" });
+
+          console.group();
+          console.info("我的名字是：" + me.attr("fullname") + "\n我的性别是：" + me.attr("gender"));
+          console.groupEnd();
+          /*------[执行结果]------
+
+         我的名字是：小红
+         我的性别是：<用户未输入>
+
+         ------------------*/
+
+          me.attr("fullname", "小明");
+          me.attr("gender", "男");
+          me.fullname = "废柴";
+          me.gender = "人妖";
+          she.attr("gender", "女");
+
+          console.group();
+          console.info("我的名字是：" + me.attr("fullname") + "\n我的性别是：" + me.attr("gender"));
+          console.groupEnd();
+          /*------[执行结果]------
+
+         我的名字是：小明
+         我的性别是：男
+
+         ------------------*/
+
+          console.group();
+          console.info("我的名字是：" + she.attr("fullname") + "\n我的性别是：" + she.attr("gender"));
+          console.groupEnd();
+          /*------[执行结果]------
+
+         我的名字是：小红
+         我的性别是：女
+
+         ------------------*/
+
+          me.attr({
+                  "words-limit": 3,
+                  "words-emote": "微笑"
+          });
+          me.words("我喜欢看视频。");
+          me.words("我们的办公室太漂亮了。");
+          me.words("视频里美女真多！");
+          me.words("我平时都看优酷！");
+
+          console.group();
+          console.log(me.say());
+          /*------[执行结果]------
+
+         小明微笑："我喜欢看视频。我们的办公室太漂亮了。视频里美女真多！"
+
+         ------------------*/
+
+          me.attr({
+                  "words-limit": 2,
+                  "words-emote": "喊"
+          });
+
+          console.log(me.say());
+          console.groupEnd();
+          /*------[执行结果]------
+
+         小明喊："我喜欢看视频。我们的办公室太漂亮了。"
+
+         ------------------*/
+
+        }catch(e){
+          console.error("执行出错，错误信息: " + e);
+        }
+    </script>
+</body>
+</html>
