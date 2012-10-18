@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Smashing HTML5
+describe: Smashing HTML5布局，熟悉HTML5标签以及CSS3的样式处理
 ---
 
 Smashing HTML5, 一种新布局。如下图，

@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Dragable cat 2
+describe: 【小猫的加强版】写成一个Element的扩展drag，可以在使用在其他绝对定位的元素上。
 ---
+
 将之前的代码重构一下，写成一个Element的扩展drag，当给drag传入true时，元素则可拖拽，传入false则取消可拖拽状态。
 
 <a href="\code\exam\ex14.html">拖动更多的小猫，哈哈~~~</a>

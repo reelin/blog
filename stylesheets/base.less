@@ -1,0 +1,27 @@
+// 圆角
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+// 盒阴影
+.box-shadow (@left, @top, @shadow, @color) {
+  box-shadow:         @left @top @shadow @color;
+  -webkit-box-shadow: @left @top @shadow @color;
+  -moz-box-shadow:    @left @top @shadow @color;
+}
+
+// 字体阴影
+.text-shadow (@left, @top, @shadow, @color) {
+  text-shadow:         @left @top @shadow @color;
+  -webkit-text-shadow: @left @top @shadow @color;
+  -moz-text-shadow:    @left @top @shadow @color;
+}
+
+// 渐变背景色
+.linear-gradient (@deg, @c1, @p1, @c2, @p2) {
+	background: linear-gradient(@deg, @c1 @p1, @c2 @p2);
+	background: -moz-linear-gradient(@deg, @c1 @p1, @c2 @p2);
+	background: -webkit-linear-gradient(@deg, @c1 @p1, @c2 @p2);
+}

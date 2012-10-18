@@ -1,6 +1,7 @@
 ---
 layout: post
-title: 回调函数小demo
+title: 练习题
+describe: 复习DOM的一些操作，以及回调函数的用法
 ---
 
 *	实现walkTheDom函数，接受两个参数，一个是根节点，另一个是回调函数。结构如下：

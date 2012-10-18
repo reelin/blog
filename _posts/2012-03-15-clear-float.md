@@ -1,6 +1,7 @@
 ---
 layout: post
 title: clear float
+describe: 整理float用法，总结归纳，方便以后看
 ---
 
 <img class="alignnone size-medium wp-image-21" title="1" src="http://reelin-wordpress.stor.sinaapp.com/uploads/2012/06/1-300x157.jpg" alt="" width="300" height="157" data-pinit="registered" />

@@ -1,8 +1,12 @@
 ---
 layout: default
 ---
-<div class="post">
+
+<div id="github">
     <h2>{{ page.title }}</h2>
-    <div>{{ content }}</div>
-    <div>Posted on {{ page.date | date_to_long_string }}</div>
+    <div class="blog-content">
+    	<div>{{ content }}</div>
+    	<p class="data">Posted on {{ page.date | date_to_long_string }}</p>
+    </div>
 </div>
+

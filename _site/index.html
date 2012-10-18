@@ -5,101 +5,166 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Play Cat</title>
 
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" type="text/less" href="/stylesheets/styles.less">
+    
+    <meta name="viewport" post="width=device-width, initial-scale=1, user-scalable=no">
     <script src="/javascripts/scale.fix.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-1.7.2.min.js"></script>
+    <script src="/javascripts/less-1.3.0.min.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
-<div class="wrapper">
-    <header>
-        <h1 class="header">喵呜呜</h1>
-        <p class="header">I like green</p>
 
+<body>
+    <header>
         <ul>
-            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/zipball/master">Download ZIP</a></li>
-            <li class="download"><a class="buttons" href="https://github.com/reelin/blog/tarball/master">Download TAR</a></li>
-            <li><a class="buttons github" href="https://github.com/reelin/blog">View On GitHub</a></li>
+            <li><a id="logo">喵呜呜</a></li>
+            <li>
+                <a href="/index.html">Blog</a>
+            </li>
+            <li>
+                <a href="/exercise.html">Exercises</a>
+            </li>
+            <li>
+                <a href="/demo.html">Demo</a>
+            </li>
+            <li>
+                <a href="reelin.html">About</a>
+            </li>
         </ul>
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/reelin">reelin</a></p>
-
-
     </header>
-    <section>
-        <div class="posts">
+    <div class="wrapper">        
 
-    <div class="post">
-        <h2><a href="/blog/2012/10/10/js-sohu-answer.html">三道搜狐面试题（答案）</a></h2>
-        <div>Posted on 10 October 2012</div>
+        <aside id="link">
+    <div class="aside">
+        <h2>I'm here</h2>
+        <ol>
+            <li><a href="">reelin's Github</a></li>
+            <li><a href="">reelin's Git</a></li>
+            <li><a href="">reelin's weibo</a></li>
+        </ol>
     </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/09/22/js-sohu-exams.html">三道搜狐面试题</a></h2>
-        <div>Posted on 22 September 2012</div>
+    <div class="aside">
+        <h2>Good place!</h2>
+        <ol>
+            <li><a href="">naiteluo's Blog</a></li>
+        </ol>
     </div>
+</aside>
 
-    <div class="post">
-        <h2><a href="/blog/2012/09/22/js-exams1.html">全局变量局部变量</a></h2>
-        <div>Posted on 22 September 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/09/15/dragable-cat2.html">Dragable cat 2</a></h2>
-        <div>Posted on 15 September 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/09/15/dragable-cat1.html">Dragable cat 1</a></h2>
-        <div>Posted on 15 September 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/09/11/dom.html">Dom操作</a></h2>
-        <div>Posted on 11 September 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/09/04/animate.html">animate</a></h2>
-        <div>Posted on 04 September 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/08/22/%BB%D8%B5%F7%BA%AF%CA%FD%D0%A1demo.html">回调函数小demo</a></h2>
-        <div>Posted on 22 August 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/08/20/myGetElementsByClassName.html">myGetElementsByClassName</a></h2>
-        <div>Posted on 20 August 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/07/10/%B7%AD%D7%AA%C6%F7demo.html">翻转器demo</a></h2>
-        <div>Posted on 10 July 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/05/10/smashing-html5.html">Smashing HTML5</a></h2>
-        <div>Posted on 10 May 2012</div>
-    </div>
-
-    <div class="post">
-        <h2><a href="/blog/2012/03/15/clear-float.html">clear float</a></h2>
-        <div>Posted on 15 March 2012</div>
-    </div>
- 
-</div>
-
-    </section>
-    <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-    </footer>
-</div>
-<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+<section id="blog">
+	<div class="posts">
 	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/10/10/js-sohu-answer.html">三道搜狐面试题（答案）</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">搜狐面试题目答案</p>
+		        <p class="date">Posted on 10 October 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/09/22/js-sohu-exams.html">三道搜狐面试题</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">从网上看到的题目，有点小难度，帮助自己复习</p>
+		        <p class="date">Posted on 22 September 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/09/22/js-exams1.html">全局变量局部变量</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">变量作用域的小题目</p>
+		        <p class="date">Posted on 22 September 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/09/15/dragable-cat2.html">Dragable cat 2</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">【小猫的加强版】写成一个Element的扩展drag，可以在使用在其他绝对定位的元素上。</p>
+		        <p class="date">Posted on 15 September 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/09/15/dragable-cat1.html">Dragable cat 1</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">任意拖动一只绝对定位的小猫，demo</p>
+		        <p class="date">Posted on 15 September 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/09/11/dom.html">Dom 操作</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">DOM操作的练习</p>
+		        <p class="date">Posted on 11 September 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/09/04/animate.html">animate</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">用原生JS实现animate函数</p>
+		        <p class="date">Posted on 04 September 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/08/22/dom-callback-exercise.html">练习题</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">复习DOM的一些操作，以及回调函数的用法</p>
+		        <p class="date">Posted on 22 August 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/08/20/myGetElementsByClassName.html">myGetElementsByClassName</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">部分浏览器是不支持getElementsByClassName方法的，扩展Element，新增一个myGetElementsByClassName方法，以供跨浏览器使用.</p>
+		        <p class="date">Posted on 20 August 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/07/10/rotate-demo.html">Rotate Demo</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe"></p>
+		        <p class="date">Posted on 10 July 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/05/10/smashing-html5.html">Smashing HTML5</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">Smashing HTML5布局，熟悉HTML5标签以及CSS3的样式处理</p>
+		        <p class="date">Posted on 10 May 2012</p>
+		    </div>
+		</div>
+	
+	    <div class="post">
+		    <h2 class="post-title"><a href="/blog/2012/03/15/clear-float.html">clear float</a></h2>
+		    <div class="blogs">
+		        <p class="post-describe">整理float用法，总结归纳，方便以后看</p>
+		        <p class="date">Posted on 15 March 2012</p>
+		    </div>
+		</div>
+	 
+	</div>
+</section>
+
+        
+        <footer>
+            <p>Hosted on GitHub Pages — Theme by <a class="header name" href="https://github.com/reelin">reelin</a></p>
+        </footer>
+    </div>
+
+<script type="text/javascript" src="/javascripts/base.js"></script>
+
+<!--[if !IE]><script>fixScale(document);</script><![endif]-->
 </body>
 </html>

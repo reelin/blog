@@ -1,9 +1,12 @@
 ---
 layout: post
 title: Dragable cat 1
+describe: 任意拖动一只绝对定位的小猫，demo
 ---
 
-任意拖动一只绝对定位的小猫~  <a href="\code\exam\ex13.html">快来玩玩小猫吧~~</a>
+任意拖动一只绝对定位的小猫~  
+
+<a href="\code\exam\ex13.html">快来玩玩小猫吧~~</a>
 
 	<!DOCTYPE HTML>
 	<html lang="en-US">

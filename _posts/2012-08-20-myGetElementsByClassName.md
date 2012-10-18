@@ -1,6 +1,7 @@
 ---
 layout: post
 title: myGetElementsByClassName
+describe: 部分浏览器是不支持getElementsByClassName方法的，扩展Element，新增一个myGetElementsByClassName方法，以供跨浏览器使用.
 ---
 
 *	部分浏览器是不支持getElementsByClassName方法的，扩展Element，新增一个myGetElementsByClassName方法，以供跨浏览器使用
