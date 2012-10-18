@@ -25,13 +25,13 @@
                 <a href="/index.html">Blog</a>
             </li>
             <li>
-                <a href="/exercise.html">Exercises</a>
+                <a href="#">Exercises</a>
             </li>
             <li>
                 <a href="/demo.html">Demo</a>
             </li>
             <li>
-                <a href="reelin.html">About</a>
+                <a href="#">About</a>
             </li>
         </ul>
 
@@ -40,7 +40,7 @@
 
         <div id="github">
     <h2>三道搜狐面试题（答案）</h2>
-    <div class="blog-content">
+    <div class="content">
     	<div><ul>
 <li><p>题目一：实现一个遍历数组或对象里所有成员的迭代器</p>
 
@@ -48,7 +48,9 @@
 <li><p>调用each函数的参数内部使用了this，将obj的属性值当做了此时的this.Function.call() 可以将函数作为对象的方法调用，可单独指定传递的参数；Function.apply() 的参数要传入数组元素。在此更适合使用call()将value当做此时的this，并且调用fn函数。</p></li>
 <li><p>由于数组和对象传递的参数不同，要判断数组和对象，使用typeof得到的返回值都是object。ECMAscript 5中可以使用Array.isArray()函数来判断。ECMAscript 3中可以这样判断：对象的类属性是一个字符串，表示对象的类型信息。可以用默认的toString()方法 (继承自Object.prototype) 返回[object class]。但很多对象继承的toString方法可能被重写过，为了能够调用到正确的toString()版本，必须间接的调用Function.call()。</p>
 
-<pre><code>var isAarry = (Array.isArray) ? Array.isArray(obj) : typeof obj === "object" &amp;&amp; Object.prototype.toString.call(obj) === "[object Array]";
+<pre><code>var isAarry = (Array.isArray) ?
+                 Array.isArray(obj) : typeof obj === "object"
+                 &amp;&amp; Object.prototype.toString.call(obj) === "[object Array]";
 </code></pre></li>
 </ol>
 
@@ -62,9 +64,7 @@
 <pre><code>if (this.constructor !== Man) {
     return new Man(obj);
 }
-</code></pre></li>
-</ol>
-
+</code></pre>
 
 <p><code>fullName</code>和<code>gender</code>私有化，这样在外部赋值就不会影响到值的改变，用<code>setter</code>和<code>getter</code>来取值和赋值</p>
 
@@ -88,9 +88,7 @@ this.get_fullname = function() {
 this.get_gender = function() {
     return gender;
 }
-</code></pre>
-
-<ol>
+</code></pre></li>
 <li><p>attr方法。用可变的参数数组argument的长度的不同，进行不同的操作。在长度为一的时候判断类型，是对象的话就批量setter。</p></li>
 <li><p>words方法。我设了一个属性sayWords来存放words。</p></li>
 <li><p>says方法。根据word-limit的长度来决定输出的sayWords的长度。</p></li>
