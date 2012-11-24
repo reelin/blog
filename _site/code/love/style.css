@@ -1,0 +1,65 @@
+body {
+	font-family: "Microsoft YaHei";
+	padding: 0;
+	margin: 0;
+}
+#wrapper {
+	width: 820px;
+	margin: 0 auto;
+	border-bottom: 2px solid #9ad1b4;
+	background: rgba(255, 255, 255, 0.2);
+}
+
+#col-left {
+	width: 300px;
+	position: fixed;
+	top: 40px;
+}
+
+#col-left h1 {
+	color: #a5ffa7;
+	margin-bottom: 70px;
+}
+
+pre.code {
+	margin: 0;
+	font-size: 15px;
+	font-family: Arial;
+	line-height: 27px;
+}
+
+.left-footer {
+	font-size: 12px;
+	color: #888;
+}
+
+#col-right {
+	margin-left: 320px;
+	margin-top: 50px;
+	overflow: hidden;
+}
+
+.photo {
+	margin-bottom: 55px;
+}
+
+.photo img {
+	display: block;
+	box-shadow: 4px 4px 4px #aaa;
+}
+
+.photo p {
+	font-size: 14px;
+	font-weight: bold;
+	color: #7fcb83;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	margin-top: 20px;
+}
+
+p#footer {
+	font-size: 15px;
+	font-weight: bold;
+	color: #5aab82;
+	margin: 70px 0;
+}
