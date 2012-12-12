@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>marigin collapsing</title>
+	<style type="text/css">
+	    body {
+	    	font-family: "MS Sans Serif", Geneva, sans-serif, Arial;
+	    }
+
+	    #wrapper {
+	    	width: 960px;
+	    	margin: 0 auto;
+	    	text-align: center;  // css hack
+	    }
+
+	    #wrapper p, #wrapper dt {
+	    	text-align: left;
+	    }
+
+		.box {
+			margin: 10px;
+			background-color: #bcc7cf;
+		}
+		.box p {
+			margin: 20px;
+			background-color: #FFA4AD;
+		}
+
+		#f-resolve .box {
+			margin: 10px;
+			padding: 5px;
+			background-color: #bcc7cf;
+		}
+
+		#f-bfc .box {
+			overflow: hidden;
+		}
+
+	    .blue {
+	      width: 100px;
+	      height: 100px;
+	      background-color: #bcc7cf;
+	      margin: 10px;
+	    }
+
+	    .pink {
+	      width: 100px;
+	      height: 100px;
+	      background-color: #FFA4AD;
+	      margin: 10px;
+	    }
+
+	    #s-resolve {
+	    	width: 120px;
+	    	overflow: hidden;
+	    }
+
+	    #s-resolve .blue, #s-resolve .pink {
+	    	float: left;
+	    }
+
+	    #third .pink, #t-resolve .pink{
+	    	margin: 10px 0 0 10px;
+	    } 
+
+	    #third .blue, #t-resolve .blue {
+	    	margin: 0 0 10px 10px;
+	    }
+
+	    .empty {
+	    	margin: 20px 0 20px 0;
+	    }
+
+	    #t-resolve .empty {
+	    	padding: 1px;
+	    }
+		
+	</style>
+</head>
+<body>
+	<dl id="wrapper">
+		<dt>1. 元素没有垂直边框或者内边距</dt>
+		<dd id="first">
+			<div class="box">
+				<p>This is a box.</p>
+			</div>
+		</dd>
+		<dt>解决后：</dt>
+		<dd id="f-resolve">
+			<div class="box">
+				<p>This is a box.</p>
+			</div>
+		</dd>
+		<dt>父元素形成新的BFC：</dt>
+		<dd id="f-bfc">
+			<div class="box">
+				<p>This is a box.</p>
+			</div>
+		</dd>
+		<dt>2. 两个相邻的块级元素</dt>
+		<dd id="second">
+			<div class="pink"></div>
+    		<div class="blue"></div>
+		</dd>
+		<dt>解决后：</dt>
+		<dd id="s-resolve">
+			<div class="pink"></div>
+    		<div class="blue"></div>
+		</dd>
+		<dt>3. 空元素上的外边距叠加</dt>
+		<dd id="third">
+			<div class="pink"></div>
+			<div class="empty"></div>
+    		<div class="blue"></div>
+		</dd>
+		<dt>解决后：</dt>
+		<dd id="t-resolve">
+    		<div class="pink"></div>
+			<div class="empty"></div>
+    		<div class="blue"></div>
+		</dd>
+
+	</dl>
+</body>
+</html>
