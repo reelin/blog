@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>About Me</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+	/*basic stylesheet*/
+	body {
+		font: 14px/18px Arial,Helvetica,sans-serif;
+		color: #333;
+		margin: 0;
+		padding: 0;
+	}
+	h1 {
+		font-size: 20;
+		color: #3c9070;
+	}
+	h2 {
+		font-size: 18px;
+		color: #BF7033;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	
+	/*general stylesheet*/
+	.trigger {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border-top: 4px solid transparent;
+		border-left: 8px solid #BF7033;
+		border-bottom: 4px solid transparent;
+		margin-right: 8px;
+	}
+	.bar_green, .bar_orange {
+		height: 5px;
+		float: left;
+		width: 50%;
+	}
+	.bar_green {
+		background-color: #3c9070;
+	}
+	.bar_orange {
+		background-color: #BF7033;
+	}
+
+	/*wrapper stylesheet*/
+	#wrapper {
+		width: 800px;
+		margin: 0px auto;
+		clear: left;
+		position: relative;
+		top: 30px;
+	}
+	
+	/*header stylesheet	*/
+	#wrapper header {
+		overflow: hidden;
+	}
+	#wrapper .block {
+		float: left;
+		width: 245px;
+		margin-right: 30px;
+	}
+	#wrapper .block.center {
+		padding-top: 20px;
+	}
+	#wrapper .block:last-child {
+		margin-right: 0;
+	}
+
+	#wrapper .block h1 span {
+		padding-left: 20px;
+		padding-top: 7px;
+		font-size: 13px;
+	}
+	#wrapper .block p {
+		font-size: 13px;
+		color: #999;
+		margin-bottom: 20px;
+	}
+	#wrapper .block img{
+		display: inline-block;
+		width: 240px;
+		height: auto;
+		border-radius: 126px;
+		box-shadow: 0px 0px 5px #000;
+	}
+	#wrapper .block pre {
+		font-size: 12px;
+		font-family: Consolas, 'Liberation Mono', Courier, monospace;
+		color: #555;
+	}
+	#wrapper .block ul {
+		padding: 0 0 0 10px;
+	}
+
+	#wrapper .block ul li {
+		font-size: 12px;
+		color: #555;
+	}
+	#wrapper .block h2 {
+		margin-top: 20px;
+	}
+	#wrapper .block canvas {
+		margin-left: 20px;
+	}
+
+	/*container stylesheet*/
+	#wrapper #container {
+		margin: 20px 0;
+		border-top: 1px solid #eee;
+		padding: 20px 0;
+	}
+	#wrapper #container dt {
+		color: #555;
+		margin-bottom: 12px;	
+	}
+	#wrapper #container dt span.data {
+		float: right;
+		color: #999;
+		font-size: 13px;
+	}
+	#wrapper #container dd {
+		margin-bottom: 25px;
+		margin-left: 0px;
+	}
+	</style>
+</head>
+<body>
+	<div class="bar_green"></div>
+	<div class="bar_orange"></div>
+	<div id="wrapper">
+		<header>
+			<div class="block">
+				<h1>任琳<span>求职意向：前端开发</span></h1>
+
+				<pre>
+var info = {
+  school: 'Sun Yat-Sen University',
+  major: 'software engineering',
+  phone: '15657661363',
+  email: 'reelin.rl@gmail.com',
+  blog: 'miaowuwu.net'
+};
+/**
+ * 大三的时候接触并爱上web前端开发，
+ * 有过不少项目和实习经验。
+ * 仍在前端的道路上探索，
+ * 希望成为一名优秀的前端女子
+ */</pre>
+
+			</div>
+			<div class="block center">
+				<img src="/me.jpg" alt="me">
+			</div>
+			<div class="block">
+				<h2>掌握的技能：</h2>
+				<canvas id="listCanvas" width="200px" height="200px" ></canvas>
+			</div>
+
+		</header>
+		<div id="container">
+			<ul>
+				<li>
+					<h2>实习经验</h2>
+					<dl>
+						<dt>
+							<div class="trigger"></div>
+							36氪前端实习生<span class="data">2013-01 ~ 2013-04</span>
+						</dt>
+						<dd>主要工作：参与36氪+项目的开发和维护。完成的项目有：专辑页面，新闻流，项目单页的新闻流，项目单页的重构，新闻流API实现</dd>
+					</dl>
+				</li>
+				<li>
+					<h2>项目经验</h2>
+					<dl>
+						<dt>
+							<div class="trigger"></div>
+							shiningo<span class="data">2012-08 ~ 2012-10</span>
+						</dt>
+						<dd>ios 照相软件 shining 的网站开发。负责前端部分的开发，主要使用瀑布流框架 masonry 以及 less。 项目还在进行中，还未完成，暂时放在新浪 SAE 上 http://shiningo.sinaapp.com/prototype。</dd>
+						<dt>
+							<div class="trigger"></div>
+							汇航物流系统<span class="data">2012-07 ~ 2012-08</span>
+						</dt>
+						<dd>企业 ERP 物流系统网页前端开发，在团队中负责静态原型的设计和实现，使用 bootstrap 框架。</dd>
+						<dt>
+							<div class="trigger"></div>
+							网上书城“红领巾书城”<span class="data">2012-04 ~ 2012 – 05</span>
+						</dt>
+						<dd>系统分析课程设计。负责前台开发设计，使用 HTML5 和 CSS3</dd>
+						<dt>
+							<div class="trigger"></div>
+							在线聊天室“Onchat”<span class="data">2012-02 ~ 2012 – 05</span>
+						</dt>
+						<dd>负责前台开发设计，使用 HTML5 和 CSS3</dd>
+						<dt>
+							<div class="trigger"></div>
+							数字图像处理课程设计<span class="data">2011-09 ~ 2011 - 12</span>
+						</dt>
+						<dd>图像的相似性检索，在团队中负责主要算法和界面实现。</dd>
+						<dt>
+							<div class="trigger"></div>
+							多媒体技术课程设计<span class="data">2011-02 ~ 2011 - 06</span>
+						</dt>
+						<dd>设计开发基于新浪微博 API 的图像搜索应用，在团队中负责图像色彩直方图检索的实现。</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var canvas = document.getElementById("listCanvas"),
+				ctx = canvas.getContext("2d"),
+				fontList = ['HTML', 'CSS', 'HTML5', 'CSS3', 'javascript', 'Ajax', 'jQuery', 'bootstrap'],
+				grade = ['75', '75', '65', '65', '70', '75', '75', '80'],
+				len = fontList.length;
+			for (var i = 0; i < len; i++){
+				ctx.fillStyle = "#111";
+				ctx.font = "13px/18px arial";
+				ctx.fillText(fontList[i], 0, 20+i*20);
+				ctx.strokeStyle = "rgba(191, 112, 51, 0.7)";
+				ctx.strokeRect(80.5, 10.5+i*20 , 102, 15);
+				ctx.fillStyle = "rgba(191, 112, 51, 0.3)";
+				ctx.fillRect(81.5, 11+i*20 , grade[i], 14);
+			}
+		</script>
+	</div>
+</body>
+</html>
