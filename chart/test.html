@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
+	<script type="text/javascript" src="javascript/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<table class="table table-bordered table-input span2">
+			<thead>
+				<tr>
+					<th><input type="text" value="#" disabled></th>
+					<th>
+						<input type="text"><i class="icon-plus-sign"></i><i class="icon-remove-sign icon-hidden"></i>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<td class="name">
+					<input type="text"><i class="icon-plus-sign"></i><i class="icon-remove-sign icon-hidden"></i>
+				</td>
+				<td><input type="text"></td>
+			</tbody>
+		</table>	
+		<button class="btn" type="submit" id="submit">制图</button>
+
+	
+
+
+	</div>
+	<script type="text/javascript" src="javascript/chart.js"></script>
+
+<!-- 
+	<script type="text/javascript">
+		var submit = document.getElementById("submit"),
+			add = $('.add'),
+			color = ["CE7688", "#75c0eb", "#aecfbd", "#f8b887", "#fce996"],
+			color2 = ["rgba(87, 212, 144, 0.8)", "rgba(158, 197, 255, 0.8)", "rgba(255, 175, 235, 0.8)"],
+			color3 = ["#a0d9ff", "#ffdca0", "#ffa4ad", "#af92ff", "#ff90f5"],
+
+			order = 1;
+
+
+		submit.onclick = function(e) {
+			e.preventDefault();
+			var inputList = document.getElementsByTagName("input"),
+				inputLen = inputList.length,
+				items = [],
+				nums = [],
+				radians = [],
+				total = 0,
+				canvas1 = document.getElementById("myCanvas1"),
+				context1 = canvas1.getContext("2d"),
+				canvas2 = document.getElementById("myCanvas2"),
+				context2 = canvas2.getContext("2d"),
+				canvas3 = document.getElementById("myCanvas3"),
+				context3 = canvas3.getContext("2d");
+			for (var i = 0; i < inputLen; i++) {
+				if (!inputList[i].value) {
+					items[i] = 0;
+				} else {
+					items[i] = parseFloat(inputList[i].value);
+					nums.push(items[i]);
+				}
+				total += items[i];
+			}
+			for (var i = 0; i < inputLen; i++) {
+				var percent = items[i] / total;
+				radians[i] = calculateRadian(percent) ;
+			}
+			context1.clearRect(0, 0, 800, 600);
+		
+			pieChart(context1, radians, color, 400, 300, 250);
+			barChart(context2, nums, order, color2);
+			lineChart(context3, nums, order, color3);		
+		};
+
+
+
+		function calculateRadian(percent){
+			return percent * 2 * Math.PI;
+		}
+
+
+		function setFillRect(context, style, x, y, width, height) {
+			context.fillStyle = style;
+			context.fillRect(x, y, width, height);
+		}
+
+		function setStrokeRect(context, style, x, y, width, height) {
+			context.strokeStyle = style;
+			context.strokeRect(x, y, width, height);
+		}
+
+		function setLine(context, color, x_start, y_start, x_end, y_end) {
+			context.strokeStyle = color;
+			context.beginPath();
+			context.moveTo(x_start, y_start);
+			context.lineTo(x_end, y_end);
+			context.stroke();
+		}
+
+		function setFillText(context, font, color, align, text, x, y, maxWidth){
+			context.font = font;
+			context.fillStyle = color;
+			context.textAlign = align;
+			context.fillText(text, x, y, 80, maxWidth);
+		}
+
+		function setFillArc(context, color, x, y, r, start, end) {
+			context.fillStyle = color;
+			context.beginPath();
+			context.moveTo(x, y);
+			context.arc(x, y, r, start, end);
+			context.fill();
+		}
+		function setStrokeArc(context, color, x, y, r, start, end) {
+			context.strokeStyle = color;
+			context.beginPath();
+			context.moveTo(x, y);
+			context.arc(x, y, r, start, end);
+			context.stroke();
+		}
+
+		function pieChart(context, radians, color, x, y, r) {
+			var i = 0,
+				len = radians.length,
+				start = 0,
+				end = radians[i];
+			for (; i < len; ) {
+				setFillArc(context, color[i], x, y, r, start, end);
+				start = end ;
+				end = start + radians[++i] ;
+			}
+		}
+
+		function barChart(context, data, order, color) {			
+			var len = data.length,
+				interval = (680 - (len * 26))/(len+1),
+				height = [],
+				grid = setGrid(context, data);
+
+			for (var i = 0; i < len; i++) {			
+				// arithmetic progression an = a1 + (n-1) * d
+				height[i] = data[i] / grid.unitLength * grid.lineSpace;
+				setBar(context, color[order-1], 69.5+(order-1)*26 + interval + i * (26 + interval), 549.5, 26, -height[i]);				
+			}
+		}
+
+		function lineChart(context, data, order, color) {
+			var len = data.length,
+				interval = (680 - (len * 26))/(len+1),
+				height = [],
+				grid = setGrid(context, data),
+				temp ,
+				x_start,
+				x_end,
+				offset = [];
+
+			context.strokeStyle = color[order-1];
+			context.lineWidth = 5;
+			for (var i = 0; i < len; i++) {			
+				// arithmetic progression an = a1 + (n-1) * d
+				temp = data[i] / grid.unitLength * grid.lineSpace;
+				height[i] = (274.5 - temp) * 2 + temp;
+				x_end = 80.5 + (order - 1) * 26 + interval + i * (26 + interval);
+
+				if (i > 0) {
+					x_start = 80.5 + (order - 1) * 26 + interval + (i-1) * (26 + interval);
+					offset = calculateOffset(x_start , height[i-1], x_end, height[i], 2);
+					console.log(x_start , height[i-1], x_end, height[i], offset)
+					setLine(context,color[order-1], offset[0] , offset[1], x_end, height[i]);
+				} 
+				setFillArc(context, color[order-1], x_end, height[i], 6, 0, 2*Math.PI);
+				setFillArc(context, "#fff", x_end, height[i], 3, 0, 2*Math.PI);
+
+			}
+		}
+		
+		function setBar(context, color, x, y, width, height) {			
+			setFillRect(context, color, x, y, width, height);
+			setFillRect(context,"rgba(255, 255, 255, 0.5)", x+1, y-1, 24 , height+2);
+		}
+
+		function setGrid(context, nums, unitLength, order) {
+			var max = findMax(nums),
+				lineSpace = 50,
+				temp = max + '';
+
+			// set defult grid
+			if (unitLength === undefined) {
+				var len = temp.trim().split('.')[0].length;
+				unitLength = Math.pow(10, len-1);
+			}
+			len = Math.ceil(max/unitLength)+1;
+			lineSpace = 500 / len;
+
+			setLine(context, "#e5e5e5", 68.5, 549.5, 68.5, 35.5);
+			setInterval(setLine(context,"#e5e5e5", 60.5, lineSpace * i + 49.5, 750.5, lineSpace * i + 49.5), 2000);
+			for (var i = 0; i < len+1; i++) {
+				setLine(context,"#e5e5e5", 60.5, lineSpace * i + 49.5, 750.5, lineSpace * i + 49.5);
+				setFillText(context, "16px Arial,Helvetica,sans-serif", "#555", "right", unitLength*(len-i), 50, lineSpace * i + 55, 100);
+			}
+			return {
+				unitLength: unitLength,
+				lineSpace: lineSpace,
+				boundary: unitLength*len
+			};
+		}
+
+		function findMax(nums) {
+			var max = 0,
+				len = nums.length;
+			for (var i = 0; i < len; i++) {
+				max = Math.max(max, nums[i]);
+			}
+			return max;
+		}
+
+		function calculateOffset(x1, y1, x2, y2, r) {
+			var x0, y0, a, b;
+			if (y1 > y2) {
+				a = Math.abs(y1-y2) * r / Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+				b = Math.abs(r*r - a*a);
+				x0 = x1 + b;
+				y0 = y1 - a;
+			} else if (y1 < y2){
+				a = (x2-x1) * r / Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+				b = Math.abs(r*r - a*a);
+				x0 = x1 + a;
+				y0 = y1 + b;
+			}
+			
+			return [x0, y0];
+		}
+
+		
+	</script>
+ --></body>
+</html>

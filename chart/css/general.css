@@ -1,0 +1,32 @@
+#wrapper {
+	width: 960px;
+	margin: 20px auto;
+}
+#wrapper canvas {
+	width: 40%;
+}
+#wrapper .table-input i {
+	margin-left: 4px;
+}
+.icon-hidden {
+	visibility: hidden;
+}
+#wrapper .table-input td, #wrapper .table-input th {
+	padding: 6px 8px;
+}
+#wrapper .table-input input {
+	width: 165px;
+	border: none;
+	padding: 0;
+	webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	margin: 0;
+}
+#wrapper .table-input th input,  #wrapper .table-input td.name input{
+	width: 129px;
+}
+#wrapper .table-input th:first-child input{
+	background: #fff;
+	width: 165px;
+}
