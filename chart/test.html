@@ -3,34 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test</title>
-	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
+
 	<script type="text/javascript" src="javascript/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/styles.css">
+
+
 </head>
 <body>
 	<div id="wrapper">
-		<table class="table table-bordered table-input span2">
-			<thead>
-				<tr>
-					<th><input type="text" value="#" disabled></th>
-					<th>
+		<header>
+			<h1>Share Chart 制图</h1>
+			<p>在表格中输入数据，横轴为子类型，纵轴为多组数据。</p>
+			<div class="btn-group">
+			  	<a class="btn dropdown-toggle btn btn-info" data-toggle="dropdown" href="#">
+				    制图
+				    <span class="caret"></span>
+			  	</a>
+			  	<ul class="dropdown-menu">
+			    <!-- dropdown menu links -->
+			    	<li><a data-value="1" href="#">饼状图</a></li>
+					<li><a data-value="2" href="#">柱状图</a></li>
+				  	<li><a data-value="3" href="#">折线图</a></li>
+				  	<li class="divider"></li>
+				  	<li><a data-value="4" href="#">柱状对比图</a></li>
+				  	<li><a data-value="5" ="#">折线对比图</a></li>
+				  	<li><a data-value="6" ="#">柱状&折线对比图</a></li>
+				  	<li class="divider"></li>
+					<li><a data-value="7" ="#">全部</a></li>
+
+			  	</ul>			
+			</div>	
+			<a href="#" class="btn clear">清除</a>
+			<span class="help">输入数据中有负数，不可制成饼状图哦~</span>
+		</header>
+		<div class="table-block">	
+			
+			<table class="table table-bordered table-input span2">
+				<thead>
+					<tr>
+						<th><input type="text" value="#" disabled></th>
+						<th>
+							<input type="text"><i class="icon-plus-sign"></i><i class="icon-remove-sign icon-hidden"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<td class="name">
 						<input type="text"><i class="icon-plus-sign"></i><i class="icon-remove-sign icon-hidden"></i>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<td class="name">
-					<input type="text"><i class="icon-plus-sign"></i><i class="icon-remove-sign icon-hidden"></i>
-				</td>
-				<td><input type="text"></td>
-			</tbody>
-		</table>	
-		<button class="btn" type="submit" id="submit">制图</button>
-
-	
-
-
+					</td>
+					<td><input type="text"></td>
+				</tbody>
+			</table>	
+		</div>
+		<div class="charts"></div>
 	</div>
 	<script type="text/javascript" src="javascript/chart.js"></script>
 

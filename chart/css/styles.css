@@ -1,0 +1,80 @@
+body {
+  font: 14px/20px arial, "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+#wrapper {
+  width: 1050px;
+  margin: 40px auto;
+}
+#wrapper canvas {
+  width: 45%;
+}
+#wrapper header {
+  margin-bottom: 10px;
+}
+#wrapper header h1 {
+  font-size: 30px;
+}
+#wrapper header p {
+  font-size: 16px;
+}
+#wrapper header span.help {
+  display: none;
+}
+#wrapper .table-block {
+  overflow: hidden;
+}
+#wrapper .table-block .table-input {
+  margin: 0;
+  background: #fff;
+}
+#wrapper .table-block .table-input i {
+  margin-left: 4px;
+}
+#wrapper .table-block .table-input i .icon-hidden {
+  visibility: hidden;
+}
+#wrapper .table-block .table-input td,
+#wrapper .table-block .table-input th {
+  padding: 6px 8px;
+}
+#wrapper .table-block .table-input input {
+  width: 165px;
+  border: none;
+  padding: 0;
+  webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin: 0;
+}
+#wrapper .table-block .table-input input.small {
+  width: 100px;
+}
+#wrapper .table-block .table-input input.tiny {
+  width: 70px;
+}
+#wrapper .table-block .table-input th input,
+#wrapper .table-block .table-input td.name input {
+  width: 129px;
+}
+#wrapper .table-block .table-input th input.small,
+#wrapper .table-block .table-input td.name input.small {
+  width: 64px;
+}
+#wrapper .table-block .table-input th input.tiny,
+#wrapper .table-block .table-input td.name input.tiny {
+  width: 34px;
+}
+#wrapper .table-block .table-input th:first-child input {
+  background: #fff;
+  width: 165px;
+}
+#wrapper .table-block .table-input th:first-child input.small {
+  width: 100px;
+}
+#wrapper .table-block .table-input th:first-child input.tiny {
+  width: 70px;
+}
